@@ -1,0 +1,2 @@
+# Skak i PY-game
+ 
