@@ -7,6 +7,8 @@ pg.display.set_caption("Skak")
 clock = pg.time.Clock()
 path = os.path.abspath(os.getcwd()) + "//Chess_pieces_SVG//"
 
+print(path)
+
 chess_pieces = pg.image.load(path+"b_bishop_png_shadow_1024px.png")
 board_brown = pg.image.load(path+"square brown light_png_shadow_1024px.png")
 board_grey = pg.image.load(path+"square gray light _png_shadow_1024px.png")
