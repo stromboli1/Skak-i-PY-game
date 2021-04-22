@@ -2,8 +2,11 @@ class pawn():
     def __init__(self,x,y,img):
         self.x = x
         self.y = y
+        self.dx = 0
+        self.dy = 1
         self.img = img
         self.firstMove = True
+        # if self.firstMove:
 
 class tower():
     def __init__(self):
