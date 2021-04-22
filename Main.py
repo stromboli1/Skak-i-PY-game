@@ -1,6 +1,7 @@
 import pygame as pg
 from Classes import pawn
 import os
+import math
 import random
 
 pg.init()
@@ -47,10 +48,8 @@ while run:
         pos = pg.mouse.get_pos()
         for i in blackPieces:
             print(pos)
-            if i.x < pos[0] > i.x + 125:
-                print(i.y)
-                if i.y < pos[1] > i.y + 125:
-                    print("Hello")
+            if i.x < pos[0] < i.x + 125 and i.y < pos[1] < i.y + 125:
+                print("Hello")
 
 
     redrawGameWindow()
