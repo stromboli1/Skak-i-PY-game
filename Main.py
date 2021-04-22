@@ -45,6 +45,12 @@ while run:
             run = False
     if pressed1:
         pos = pg.mouse.get_pos()
-        print(pos)
+        for i in blackPieces:
+            print(pos)
+            if i.x < pos[0] > i.x + 125:
+                print(i.y)
+                if i.y < pos[1] > i.y + 125:
+                    print("Hello")
+
 
     redrawGameWindow()
