@@ -3,12 +3,12 @@ class pawn():
         self.x = x
         self.y = y
         self.dx = 0
-        if color == black:
-            self.dy = -1
-        else:
-            self.dy = 1
+        # if color == black:
+        #     self.dy = -1
+        #
+        # else:
+        #     self.dy = 1
         self.img = img
-
         self.firstMove = True
         # if self.firstMove:
 
