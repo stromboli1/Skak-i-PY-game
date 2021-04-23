@@ -9,7 +9,7 @@ win = pg.display.set_mode((1500,1000))
 pg.display.set_caption("Skak")
 clock = pg.time.Clock()
 path = os.path.abspath(os.getcwd()) + "//Chess_pieces_SVG//"
-
+pg.display.set_icon(pg.image.load(path+"w_knight_png_shadow_1024px.png"))
 b_pawn_img = pg.image.load(path+"b_pawn_png_shadow_1024px.png")
 board_brown = pg.image.load(path+"square brown light_png_shadow_1024px.png")
 board_grey = pg.image.load(path+"square gray light _png_shadow_1024px.png")
