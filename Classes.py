@@ -14,37 +14,57 @@ class pawn():
                 self.x = self.x
                 self.y = self.y
 
-         if self.firstMove:
-             self.dy = 1 or 2
+        if self.firstMove == True:
+            self.dy = 1 or 2
+            self.firstMove == False
+        else:
+            self.dy = 1
+
+        def enPassant():
+            pass
 
 
 
-class tower():
-    def __init__(self):
+class rook():
+    def __init__(self,x,y,img):
         self.x = x
         self.y = y
-        self.dx = i or 0
-        self.dy = 0 or i
+        self.dx = 0
+        self.dy = 1
         self.img = img
-        self.firstMove = True
 
-class runner():
-    def __init__(self):
+
+class bishop():
+    def __init__(self,x,y,img):
         self.x = x
         self.y = y
-        self.dx = i
-        self.dy = i
+        self.dx = 0
+        self.dy = 1
         self.img = img
-        self.firstMove = True
 
 class queen():
-    def __init__(self):
-        pass
+    def __init__(self,x,y,img):
+        self.x = x
+        self.y = y
+        self.dx = 0
+        self.dy = 1
+        self.img = img
+
+
 
 class king():
-    def __init__(self):
-        pass
+    def __init__(self,x,y,img):
+        self.x = x
+        self.y = y
+        self.dx = 0
+        self.dy = 1
+        self.img = img
+
 
 class knight():
-    def __init__(self):
-        pass
+    def __init__(self,x,y,img):
+        self.x = x
+        self.y = y
+        self.dx = 0
+        self.dy = 1
+        self.img = img
