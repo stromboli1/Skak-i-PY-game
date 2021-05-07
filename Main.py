@@ -106,6 +106,7 @@ move = 0
 turn = 1
 turnList = []
 while run:
+    print(pickedPiece)
     if turn == 1:
         turnList = whitePieces
     else:
@@ -117,6 +118,16 @@ while run:
         if event.type == pg.QUIT:
             run = False
 
+
+    if pressed1:
+        pos = pg.mouse.get_pos()
+        for i in turnList:
+            if i.x < pos[0] < i.x + 125 and i.y < pos[1] < i.y + 125:
+                pickedPiece = i
+                alowMovement = True
+                pressed1 = False
+                break
+                
     if pickedPiece != 0 and alowMovement and pressed1:
         pos = pg.mouse.get_pos()
         x = pickedPiece.x
@@ -130,15 +141,7 @@ while run:
                     pickedPiece.firstMove = False
                 pickedPiece = 0
                 turn = -1*turn
-                break
-
-    if pressed1:
-        pos = pg.mouse.get_pos()
-        for i in turnList:
-            if i.x < pos[0] < i.x + 125 and i.y < pos[1] < i.y + 125:
-                pickedPiece = i
-                alowMovement = True
-                pressed1 = False
+                move = 0
                 break
 
     if pickedPiece != 0:
