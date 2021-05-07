@@ -78,7 +78,7 @@ def redrawGameWindow(moves, pickedPiece):
             else:
                 win.blit(pg.transform.scale(board_grey,(125,125)),(250+125*x,125*y))
 
-    if moves != 0:
+    if moves != 0 and pickedPiece != 0:
         for i in moves:
             pg.draw.rect(win,(255,255,255),(pickedPiece.x + 125*i[0],pickedPiece.y + 125*i[1],125,125))
 
@@ -103,11 +103,28 @@ while run:
     for event in pg.event.get():
         if event.type == pg.QUIT:
             run = False
+
+    if pickedPiece != 0 and alowMovement and pressed1:
+        pos = pg.mouse.get_pos()
+        x = pickedPiece.x
+        y = pickedPiece.y
+        for i in move:
+            if i[0]*125 + x < pos[0] < i[0]*125 + x + 125 and i[1]*125 + y < pos[1] < i[1]*125 + y + 125:
+                pickedPiece.x += i[0]*125
+                pickedPiece.y += i[1]*125
+                alowMovement = False
+                if pickedPiece.__class__.__name__ == "pawn":
+                    pickedPiece.firstMove = False
+                pickedPiece = 0
+                break
+
     if pressed1:
         pos = pg.mouse.get_pos()
         for i in blackPieces:
             if i.x < pos[0] < i.x + 125 and i.y < pos[1] < i.y + 125:
                 pickedPiece = i
+                alowMovement = True
+                pressed1 = False
                 break
 
     if pickedPiece != 0:
