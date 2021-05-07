@@ -1,18 +1,18 @@
 class pawn():
-    def __init__(self,x,y,img):
+    def __init__(self,x,y,img, color):
         self.x = x
         self.y = y
         self.dx = 0
-
+        self.color = color
         self.img = img
         self.firstMove = True
         self.moves = []
 
     def moveset(self):
         if self.firstMove:
-            self.moves = [[0,1],[0,2]]
+            self.moves = [[0,self.color*1],[0,self.color*2]]
         else:
-            self.moves = [[0,1]]
+            self.moves = [[0,self.color*1]]
 
 
 class rook():
