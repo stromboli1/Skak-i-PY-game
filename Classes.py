@@ -3,14 +3,16 @@ class pawn():
         self.x = x
         self.y = y
         self.dx = 0
-        if color == black:
-            self.dy = -1
-        else:
-            self.dy = 1
         self.img = img
-
         self.firstMove = True
-        # if self.firstMove:
+        self.moves = []
+
+    def moveset(self):
+        if self.firstMove:
+            self.moves = [[0,1],[0,2]]
+        else:
+            self.moves = [[0,1]]
+
 
 class tower():
     def __init__(self):
