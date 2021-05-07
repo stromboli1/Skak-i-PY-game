@@ -31,11 +31,6 @@ class bishop():
         self.dx = 0
 
         self.img = img
-<<<<<<< HEAD
-        pass
-=======
-
->>>>>>> 0f27c48a30c3cab41b369df7d6bd5deb19b6ef12
 
 class queen():
     def __init__(self,x,y,img):

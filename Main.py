@@ -86,6 +86,9 @@ def redrawGameWindow(moves, pickedPiece):
     for i in blackPieces:
         win.blit(i.img,(i.x,i.y))
 
+    for i in whitePieces:
+        win.blit(i.img,(i.x,i.y))
+
     pg.display.update()
 
 def moves(piece):
