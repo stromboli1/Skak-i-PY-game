@@ -15,6 +15,8 @@ pg.display.set_caption("Skak")
 clock = pg.time.Clock()
 path = os.path.abspath(os.getcwd()) + "//Chess_pieces_SVG//"
 
+pg.display.set_icon(pg.image.load(path+"w_knight_png_shadow_1024px.png"))
+
 b_bishop_img = pg.image.load(path + "b_bishop_png_shadow_1024px.png")
 b_knight_img = pg.image.load(path + "b_knight_png_shadow_1024px.png")
 b_pawn_img = pg.image.load(path+"b_pawn_png_shadow_1024px.png")
@@ -63,7 +65,10 @@ for i in range(1):
 for i in range(8):
         whitePieces.append(pawn(250+125*i,500,sc_w_pawn_img))
 
-def redrawGameWindow():
+
+
+def redrawGameWindow(moves, pickedPiece):
+
     for x in range(8):
         for y in range(8):
             if (x+1) % 2 == 1 and (y+1) % 2 == 1:
@@ -73,13 +78,25 @@ def redrawGameWindow():
             else:
                 win.blit(pg.transform.scale(board_grey,(125,125)),(250+125*x,125*y))
 
+    if moves != 0:
+        for i in moves:
+            pg.draw.rect(win,(255,255,255),(pickedPiece.x + 125*i[0],pickedPiece.y + 125*i[1],125,125))
+
+
     for i in blackPieces:
         win.blit(i.img,(i.x,i.y))
 
     pg.display.update()
 
+def moves(piece):
+    piece.moveset()
+    return piece.moves
+
+clock.tick(10)
 run = True
-turn = 0
+turn = random.randint(0,1)
+pickedPiece = 0
+move = 0
 while run:
     pressed1, pressed2, pressed3 = pg.mouse.get_pressed()
     keys = pg.key.get_pressed()
@@ -89,9 +106,11 @@ while run:
     if pressed1:
         pos = pg.mouse.get_pos()
         for i in blackPieces:
-            print(pos)
             if i.x < pos[0] < i.x + 125 and i.y < pos[1] < i.y + 125:
-                print("Hello")
+                pickedPiece = i
+                break
 
+    if pickedPiece != 0:
+        move = moves(pickedPiece)
 
-    redrawGameWindow()
+    redrawGameWindow(move, pickedPiece)
