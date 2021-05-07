@@ -3,6 +3,14 @@ class pawn():
         self.x = x
         self.y = y
         self.dx = 0
+<<<<<<< HEAD
+=======
+        # if color == black:
+        #     self.dy = -1
+        #
+        # else:
+        #     self.dy = 1
+>>>>>>> cf6c6efbc778648ad4b6ebc44ec208bcd062cf14
         self.img = img
         self.firstMove = True
         self.moves = []
