@@ -127,7 +127,7 @@ while run:
                 alowMovement = True
                 pressed1 = False
                 break
-                
+
     if pickedPiece != 0 and alowMovement and pressed1:
         pos = pg.mouse.get_pos()
         x = pickedPiece.x
