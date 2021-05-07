@@ -50,8 +50,13 @@ blackPieces = []
 whitePieces = []
 
 for i in range(8):
+<<<<<<< HEAD
     blackPieces.append(pawn(250+125*i,125,sc_b_pawn_img, 1))
     whitePieces.append(pawn(250+125*i,750,sc_w_pawn_img, -1))
+=======
+    blackPieces.append(pawn(250+125*i,125,sc_b_pawn_img))
+    whitePieces.append(pawn(250+125*i,750,sc_w_pawn_img))
+>>>>>>> a76a171e963f88731953efb01641024ad5b41459
 
 
 for i in range(2):
