@@ -161,17 +161,18 @@ while run:
                 move = 0
                 break
 
-    GAME_FONT = pg.freetype.Font('Lemon Friday.ttf', 24)
+
+
+    if pickedPiece != 0:
+        move = moves(pickedPiece)
+
+    redrawGameWindow(move, pickedPiece)
+    GAME_FONT = pg.freetype.Font('Lemon Friday.ttf', 70)
     if wWin == True or bWin == True:
         if wWin == True:
             vinder = "Hvid"
         elif bWin == True:
             vinder = "Sort"
 
-        GAME_FONT.render_to(win, (700, 650), vinder + " har vundet spillet", (0, 0, 0))
+        GAME_FONT.render_to(win, (350, 450), vinder + " har vundet spillet", (23, 10, 0))
         pg.display.flip()
-
-    if pickedPiece != 0:
-        move = moves(pickedPiece)
-
-    redrawGameWindow(move, pickedPiece)
