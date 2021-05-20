@@ -150,12 +150,11 @@ while run:
                 for i in enemy:
                     if pickedPiece.x == i.x and pickedPiece.y == i.y:
                         enemy.remove(i)
-                    if i.__class__.__name__ == "king" not in enemy:
-
-                        if turn == 1:
-                            wWin = True
-                        elif turn == 0:
-                            bWin = True
+                        if i.__class__.__name__ == "king":
+                            if i.color == 1:
+                                wWin = True
+                            elif i.color == -1:
+                                bWin = True
 
                 pickedPiece = 0
                 turn = -1*turn
