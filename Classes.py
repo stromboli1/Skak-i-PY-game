@@ -110,11 +110,26 @@ class king():
         self.moves = [[-1,1],[0,1],[1,1],[1,0],[1,-1],[0,-1],[-1,-1],[-1,0]]
 
     def moveset(self, whitePieces, blackPieces):
+        self.moves = [[-1,1],[0,1],[1,1],[1,0],[1,-1],[0,-1],[-1,-1],[-1,0]]
         pieces = whitePieces + blackPieces
         if self.color == -1:
             enemy = blackPieces
+            friend = whitePieces
         else:
             enemy = whitePieces
+            friend = blackPieces
+
+        for i in friend:
+            x = (i.x-self.x)/125
+            y = (i.y-self.y)/125
+
+            move = [x,y]
+            try:
+                print(self.moves)
+                self.moves.remove(move)
+            except:
+                pass
+
 
 class knight():
     def __init__(self,x,y,img,color):
