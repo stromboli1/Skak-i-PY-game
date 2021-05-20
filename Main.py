@@ -52,17 +52,12 @@ whitePieces = []
 for i in range(8):
     blackPieces.append(pawn(250+125*i,125,sc_b_pawn_img, 1))
     whitePieces.append(pawn(250+125*i,750,sc_w_pawn_img, -1))
-<<<<<<< HEAD
-=======
-
->>>>>>> e4d305cd29ced19c7c428dc0e82cc7b610a8f169
-
 
 for i in range(2):
-    blackPieces.append(rook(250+i*875,0,sc_b_rook_img))
+    blackPieces.append(rook(250+i*875,0,sc_b_rook_img,-1))
     blackPieces.append(bishop(500+375*i,0,sc_b_bishop_img))
     blackPieces.append(knight(375+625*i,0,sc_b_knight_img))
-    whitePieces.append(rook(250+i*875,875,sc_w_rook_img))
+    whitePieces.append(rook(250+i*875,875,sc_w_rook_img,-1))
     whitePieces.append(bishop(500+375*i,875,sc_w_bishop_img))
     whitePieces.append(knight(375+625*i,875,sc_w_knight_img))
 
@@ -100,7 +95,7 @@ def redrawGameWindow(moves, pickedPiece):
 
 def moves(piece):
     piece.moveset(whitePieces, blackPieces)
-    print(piece.moves)
+#    print(piece.moves)
     return piece.moves
 
 clock.tick(10)
