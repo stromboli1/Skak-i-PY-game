@@ -6,49 +6,39 @@ class pawn():
         self.color = color
         self.img = img
         self.firstMove = True
-        self.moves = []
+        self.moves = [[0,self.color*1],[0,self.color*2]]
 
     def moveset(self, whitePieces, blackPieces):
+        self.moves = [[0,self.color*1],[0,self.color*2]]
         pieces = whitePieces + blackPieces
         if self.color == -1:
             enemy = blackPieces
+            friendly = whitePieces
         else:
             enemy = whitePieces
-        if self.firstMove:
-            for i in pieces:
-                if i.y == self.y + self.color*125 and i.x == self.x:
-                    print(True)
-                    self.moves = [[0,0]]
-                    break
-                elif i.y == self.y + self.color*250 and i.x == self.x:
-                    self.moves = [[0,self.color*1]]
-                    break
-                else:
-                    self.moves = [[0,self.color*1],[0,self.color*2]]
+            friendly = blackPieces
 
-                for i in enemy:
-                    if i.x == self.x - 125 and i.y == self.y + self.color*125:
-                        self.moves.append([-1,self.color*1])
-                    if i.x == self.x + 125 and i.y == self.y + self.color*125:
-                        self.moves.append([1,self.color*1])
-        else:
+        if self.firstMove != True:
+            try:
+                self.moves.remove([0,self.color*2])
+            except:
+                pass
 
-            for i in pieces:
-                if i.y == self.y + self.color*125 and i.x == self.x:
-                    self.moves = [[0,0]]
-                    if i.x == self.x - 125:
-                        self.moves.append([-1,1])
-                    if i.x == self.x + 125:
-                        self.moves.append([1,1])
-                    break
-                else:
-                    self.moves = [[0,self.color*1]]
+        for i in pieces:
+            x = (i.x-self.x)/125
+            y = (i.y-self.y)/125
 
-            for i in enemy:
-                if i.x == self.x - 125 and i.y == self.y + self.color*125:
-                    self.moves.append([-1,self.color*1])
-                if i.x == self.x + 125 and i.y == self.y + self.color*125:
-                    self.moves.append([1,self.color*1])
+            move = [x,y]
+
+            if move[0] == 0:
+                    try:
+                        self.moves.remove(move)
+                    except:
+                        pass
+
+            if (move[0] == -1 or move[0] == 1) and move[1] == self.color*1:
+                if i in enemy:
+                    self.moves.append(move)
 
 
 class rook():
