@@ -55,17 +55,17 @@ for i in range(8):
 
 for i in range(2):
     blackPieces.append(rook(250+i*875,0,sc_b_rook_img,1))
-    blackPieces.append(bishop(500+375*i,0,sc_b_bishop_img))
-    blackPieces.append(knight(375+625*i,0,sc_b_knight_img))
+    blackPieces.append(bishop(500+375*i,0,sc_b_bishop_img,1))
+    blackPieces.append(knight(375+625*i,0,sc_b_knight_img,1))
     whitePieces.append(rook(250+i*875,875,sc_w_rook_img,-1))
-    whitePieces.append(bishop(500+375*i,875,sc_w_bishop_img))
-    whitePieces.append(knight(375+625*i,875,sc_w_knight_img))
+    whitePieces.append(bishop(500+375*i,875,sc_w_bishop_img,-1))
+    whitePieces.append(knight(375+625*i,875,sc_w_knight_img,-1))
 
 for i in range(1):
-    blackPieces.append(queen(625*(i+1),0,sc_b_queen_img))
-    blackPieces.append(king(750*(i+1),0,sc_b_king_img))
-    whitePieces.append(queen(625*(i+1),875,sc_w_queen_img))
-    whitePieces.append(king(750*(i+1),875,sc_w_king_img))
+    blackPieces.append(queen(625*(i+1),0,sc_b_queen_img,1))
+    blackPieces.append(king(750*(i+1),0,sc_b_king_img,1))
+    whitePieces.append(queen(625*(i+1),875,sc_w_queen_img,-1))
+    whitePieces.append(king(750*(i+1),875,sc_w_king_img,-1))
 
 
 
@@ -95,7 +95,7 @@ def redrawGameWindow(moves, pickedPiece):
 
 def moves(piece):
     piece.moveset(whitePieces, blackPieces)
-#    print(piece.moves)
+    print(piece.moves)
     return piece.moves
 
 clock.tick(10)
@@ -138,6 +138,14 @@ while run:
                 alowMovement = False
                 if pickedPiece.__class__.__name__ == "pawn":
                     pickedPiece.firstMove = False
+                if turn == 1:
+                    enemy = blackPieces
+                else:
+                    enemy = whitePieces
+                for i in enemy:
+                        if pickedPiece.x == i.x and pickedPiece.y == i.y:
+                            enemy.remove(i)
+
                 pickedPiece = 0
                 turn = -1*turn
                 move = 0
