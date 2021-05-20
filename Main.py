@@ -142,7 +142,7 @@ while run:
                 turn = -1*turn
                 move = 0
                 break
-
+#d
     if pickedPiece != 0:
         move = moves(pickedPiece)
 
