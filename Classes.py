@@ -58,6 +58,7 @@ class rook():
         self.dx = 0
         self.img = img
         self.color = color
+        self.moves = []
 
     def moveset(self, whitePieces, blackPieces):
         pieces = whitePieces + blackPieces
@@ -67,37 +68,66 @@ class rook():
             enemy = whitePieces
 
 class bishop():
-    def __init__(self,x,y,img):
+    def __init__(self,x,y,img,color):
         self.x = x
         self.y = y
         self.dx = 0
-
+        self.color = color
         self.img = img
+        self.moves = []
+
+
+    def moveset(self, whitePieces, blackPieces):
+        pieces = whitePieces + blackPieces
+        if self.color == -1:
+            enemy = blackPieces
+        else:
+            enemy = whitePieces
 
 class queen():
-    def __init__(self,x,y,img):
+    def __init__(self,x,y,img,color):
         self.x = x
         self.y = y
         self.dx = 0
-
+        self.color = color
         self.img = img
-        pass
+        self.moves = []
+
+    def moveset(self, whitePieces, blackPieces):
+        pieces = whitePieces + blackPieces
+        if self.color == -1:
+            enemy = blackPieces
+        else:
+            enemy = whitePieces
 
 class king():
-    def __init__(self,x,y,img):
+    def __init__(self,x,y,img,color):
         self.x = x
         self.y = y
         self.dx = 0
-
+        self.color = color
         self.img = img
         self.moves = [[-1,1],[0,1],[1,1],[1,0],[1,-1],[0,-1],[-1,-1],[-1,0]]
 
+    def moveset(self, whitePieces, blackPieces):
+        pieces = whitePieces + blackPieces
+        if self.color == -1:
+            enemy = blackPieces
+        else:
+            enemy = whitePieces
+
 class knight():
-    def __init__(self,x,y,img):
+    def __init__(self,x,y,img,color):
         self.x = x
         self.y = y
         self.dx = 0
-
+        self.color = color
         self.img = img
         self.moves = [[-2,1],[-1,2],[1,2],[2,1],[2,-1],[1,-2],[-1,-2],[-2,-1]]
-        pass
+
+    def moveset(self, whitePieces, blackPieces):
+        pieces = whitePieces + blackPieces
+        if self.color == -1:
+            enemy = blackPieces
+        else:
+            enemy = whitePieces
