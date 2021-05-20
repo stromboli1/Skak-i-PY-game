@@ -111,7 +111,6 @@ class king():
 
     def moveset(self, whitePieces, blackPieces):
         self.moves = [[-1,1],[0,1],[1,1],[1,0],[1,-1],[0,-1],[-1,-1],[-1,0]]
-        pieces = whitePieces + blackPieces
         if self.color == -1:
             enemy = blackPieces
             friend = whitePieces
@@ -125,7 +124,6 @@ class king():
 
             move = [x,y]
             try:
-                print(self.moves)
                 self.moves.remove(move)
             except:
                 pass
