@@ -90,7 +90,7 @@ class king():
         self.dx = 0
 
         self.img = img
-        pass
+        self.moves = [[-1,1],[0,1],[1,1],[1,0],[1,-1],[0,-1],[-1,-1],[-1,0]]
 
 class knight():
     def __init__(self,x,y,img):
@@ -99,4 +99,5 @@ class knight():
         self.dx = 0
 
         self.img = img
+        self.moves = [[-2,1],[-1,2],[1,2],[2,1],[2,-1],[1,-2],[-1,-2],[-2,-1]]
         pass
