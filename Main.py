@@ -1,4 +1,5 @@
 import pygame as pg
+import pygame.freetype as pf
 from Classes import pawn
 from Classes import bishop
 from Classes import rook
@@ -48,6 +49,7 @@ sc_w_king_img = pg.transform.scale(w_king_img,(125,125))
 
 blackPieces = []
 whitePieces = []
+winState = 0
 
 for i in range(8):
     blackPieces.append(pawn(250+125*i,125,sc_b_pawn_img, 1))
@@ -143,14 +145,36 @@ while run:
                 else:
                     enemy = whitePieces
                 for i in enemy:
-                        if pickedPiece.x == i.x and pickedPiece.y == i.y:
-                            enemy.remove(i)
+
+                    if pickedPiece.x == i.x and i.__class__.__name__ == "king" and pickedPiece.y == i.y and i.__class__.__name__ == "king":
+                        enemy.remove(i)
+                        winState = turn+2
+
+                    elif pickedPiece.x == i.x and pickedPiece.y == i.y:
+                        enemy.remove(i)
+
+                    GAME_FONT = pg.freetype.Font('Lemon Friday.ttf', 24)
+                    if turn == 1:
+                        vinder = "Hvid"
+                    elif turn == 0:
+                        vinder = "Sort"
+                    GAME_FONT.render_to(win, (700, 650), vinder + " har vundet spillet", (0, 0, 0))
+                    pg.display.flip()
 
                 pickedPiece = 0
                 turn = -1*turn
                 move = 0
                 break
-#d
+    if winState > 1:
+        GAME_FONT = pg.freetype.Font('Lemon Friday.ttf', 24)
+        vinder = ""
+        if winState == 2:
+            vinder = "Sort"
+        elif winState == 3:
+            vinder = "White"
+        GAME_FONT.render_to(win, (750, 500), vinder + " har vundet spillet", (0, 150, 0))
+        pg.display.flip()
+
     if pickedPiece != 0:
         move = moves(pickedPiece)
 
