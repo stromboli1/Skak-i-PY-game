@@ -173,6 +173,5 @@ while run:
             vinder = "Hvid"
         elif bWin == True:
             vinder = "Sort"
-
-        GAME_FONT.render_to(win, (350, 450), vinder + " har vundet spillet", (23, 10, 0))
+        GAME_FONT.render_to(win, (350, 450), vinder + " har vundet spillet", (50, 50, 50))
         pg.display.flip()
